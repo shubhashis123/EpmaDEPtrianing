@@ -49,60 +49,61 @@ abstract class Employee{
         System.out.println("Salary: " + Salary);
         System.out.println("Designation: " + Designation);
     }
-
-    public class SWE extends Employee{
-        String Project;
-        public SWE(double Salary, String Designation, String name, String Project){
-            super(Salary, Designation, name);
-            this.Project = Project;
-        }
-
-        public void JobDescription(){
-            System.out.println("DEVELOPS SOFTWARES");
-        }
-
-        public void applyHike(){
-            double newVal = super.getSalary() * 1.25;
-            setSalary(newVal);
-        }
-
-        @Override
-        public void getDetails(){
-            System.out.println("Name: " + super.getName());
-            System.out.println("Salary: " + super.getSalary());
-            System.out.println("Designation: " + super.getDesignation());
-            System.out.println("Project: " + this.Project);
-        }
+}
 
 
+class SWE extends Employee{
+    String Project;
+    public SWE(double Salary, String Designation, String name, String Project){
+        super(Salary, Designation, name);
+        this.Project = Project;
     }
 
-    public class Manager extends Employee{
-        String Team;
-        public Manager(double Salary, String Designation, String name, String Team){
-            super(Salary, Designation, name);
-            this.Team = Team;
-        }
-
-        public void JobDescription(){
-            System.out.println("Manages Teams");
-        }
-
-        public void applyHike(){
-            double newVal = getSalary() * 1.5;
-            setSalary(newVal);
-        }
-
-        @Override
-        public void getDetails(){
-            System.out.println("Name: " + getName());
-            System.out.println("Salary: " + getSalary());
-            System.out.println("Designation: " + getDesignation());
-            System.out.println("Team: " + this.Team);
-        }
-
-
+    public void JobDescription(){
+        System.out.println("DEVELOPS SOFTWARES");
     }
+
+    public void applyHike(){
+        double newVal = super.getSalary() * 1.25;
+        setSalary(newVal);
+    }
+
+    @Override
+    public void getDetails(){
+        System.out.println("Name: " + super.getName());
+        System.out.println("Salary: " + super.getSalary());
+        System.out.println("Designation: " + super.getDesignation());
+        System.out.println("Project: " + this.Project);
+    }
+
+
+}
+
+class Manager extends Employee{
+    String Team;
+    public Manager(double Salary, String Designation, String name, String Team){
+        super(Salary, Designation, name);
+        this.Team = Team;
+    }
+
+    public void JobDescription(){
+        System.out.println("Manages Teams");
+    }
+
+    public void applyHike(){
+        double newVal = getSalary() * 1.5;
+        setSalary(newVal);
+    }
+
+    @Override
+    public void getDetails(){
+        System.out.println("Name: " + getName());
+        System.out.println("Salary: " + getSalary());
+        System.out.println("Designation: " + getDesignation());
+        System.out.println("Team: " + this.Team);
+    }
+
+
 }
 
 class Company{
@@ -119,7 +120,7 @@ class Company{
     public static Company getInstance(){
         if( instance == null ){
             SWE s = new SWE(10000.0, "SWE", "Ramesh", "React Dev");
-            Manager m = new Manager(20000.0, "MANAGER", "Suresh", "XYZ");
+            Manager m = new Manager(20000.0, "MANAGER", "Suresh", "CICD");
 
             instance = new Company(s, m);
         }
